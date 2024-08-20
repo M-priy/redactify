@@ -1,0 +1,34 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definitions for Shadow and Hover Effects -->
+  <defs>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset in="SourceAlpha" dx="5" dy="5" result="offset"/>
+      <feGaussianBlur in="offset" stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Hexagon Shape with Shadow and Hover Effect -->
+  <polygon id="hexagon" points="200,50 350,150 350,250 200,350 50,250 50,150"
+           fill="#d3d3d3" stroke="#a9a9a9" stroke-width="2" filter="url(#shadow)"/>
+  
+  <!-- Text Inside Hexagon -->
+  <text id="text" x="200" y="220" font-family="Arial" font-size="24" font-weight="bold" fill="#000000" text-anchor="middle">
+    REDACTED FILES
+  </text>
+
+  <!-- CSS for Hover Effect -->
+  <style>
+    #hexagon {
+      transition: transform 0.3s, fill 0.3s;
+    }
+    
+    #hexagon:hover {
+      transform: scale(1.1);
+      fill: #b0b0b0;
+    }
+  </style>
+</svg>
