@@ -6,16 +6,16 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { CloudUpload as CloudUploadIcon, Delete as DeleteIcon, CheckCircle as CheckCircleIcon } from '@mui/icons-material';
-
 import '../assets/styles/SelectFile.css';
-import connection from '../assets/images/connection.png'; 
-import image2 from '../assets/images/image2.png';
+import connection from '../assets/images/image1.png'; 
+import image2 from '../assets/images/image2.jpeg';
 import Header from './Header';
 import Loader from '../components/Loader'; // Import the Loader component
+import upload from '../assets/svg/upload.svg';
 
 // Styled components
 const UploadButton = styled('input')({
-  display: 'none',
+display: 'none',
 });
 
 const StyledButton = styled(Button)({
@@ -256,6 +256,7 @@ const SelectFile = () => {
 
       <div className="image2" style={{ backgroundImage: `url(${image2})` }}>
         <Box display="flex" justifyContent="center" alignItems="center" height="100%" sx={{ padding: 3 }}>
+        <img src={upload} alt="Upload" style={{ width: '70%', height: '90%', marginLeft:'-30%' }} />
           <CardContainer>
             <CardContent>
               <Dropzone
@@ -282,7 +283,6 @@ const SelectFile = () => {
               {error && (
                 <ErrorMessage>{error}</ErrorMessage>
               )}
-
               {file && (
                 <>
                   <FileDetails>

@@ -1,25 +1,24 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for routing
+import { useNavigate } from 'react-router-dom';
+import '../assets/styles/Landing.css';
+import image1 from '../assets/images/backgroundfirst.jpeg';
+import image3 from '../assets/images/image3.jpeg';
+import leftSvg from '../assets/svg/leftsvg.svg';
+import rightSvg from '../assets/svg/rightsvg.svg';
 
-import '../assets/styles/Landing.css'; // Adjust the path if necessary
-
-// Import images
-import image1 from '../assets/images/backgroundfirst.png'; // Adjust the path if necessary
-import image2 from '../assets/images/image2.png'; // Adjust the path if necessary
-import leftSvg from '../assets/svg/leftsvg.svg'; // Import the left SVG
-import rightSvg from '../assets/svg/rightsvg.svg'; // Import the right SVG
 
 import Header from './Header';
+import { Typography } from '@mui/material';
 
 const Landing = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handleLeftClick = () => {
-    navigate('/selectfile'); // Navigate to /selectfile
+    navigate('/selectfile');
   };
 
   const handleRightClick = () => {
-    navigate('/existing'); // Navigate to /existing
+    navigate('/existing');
   };
 
   return (
@@ -31,14 +30,17 @@ const Landing = () => {
           <p>Securely manage/Review your redactions</p>
         </div>
       </div>
-      
-      <div className="image2" style={{ backgroundImage: `url(${image2})` }}>
-      
-        <img src={leftSvg} alt="Left SVG" className="left-svg" onClick={handleLeftClick} />
-        <img src={rightSvg} alt="Right SVG" className="right-svg" onClick={handleRightClick} />
+      <div className="image3" style={{ backgroundImage: `url(${image3})` }}>
+        <div className="svg-container" onClick={handleLeftClick}>
+          <img src={leftSvg} alt="Left SVG" className="left-svg" />
+          <Typography className="svg-text" variant='h4'>Redact New File</Typography>
+        </div>
+        <div className="svg-container" onClick={handleRightClick}>
+          <img src={rightSvg} alt="Right SVG" className="right-svg" />
+          <Typography className="svg-text" variant='h4'>Redacted Files</Typography>
+        </div>
       </div>
     </div>
   );
 };
-
-export default Landing;
+export default Landing;        
