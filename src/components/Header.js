@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Box, IconButton, useTheme, Paper } from '@mui/material';
+import { AppBar, Toolbar, Box, IconButton, Paper } from '@mui/material';
 import { styled } from '@mui/system';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import logo from '../assets/svg/applogo.svg'; // Path to your logo SVG
@@ -8,19 +8,17 @@ import HomeIcon from '@mui/icons-material/Home';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import LogoutIcon from '@mui/icons-material/Logout';
 
-
-// Styled AppBar with updated dimensions and solid background
+// Styled AppBar without fixed position
 const Header = styled(AppBar)(({ theme }) => ({
   borderRadius: '12px', // Rounded corners for a cylindrical effect
-  position: 'fixed',
-  top: '2%', // Margin from the top of the viewport
-  left: '50%', // Center horizontally
-  transform: 'translateX(-50%)', // Shift the header left by 50% of its width
-  width: '90%', // Increased width of the header
+  position: 'relative', // Changed to relative or default
+  width: '90%', // Width of the header
   height: '60px', // Height of the header
   backgroundColor: '#FFFFFF', // Solid white background
   boxShadow: 'none', // No shadow for a clean appearance
   padding: '0 24px', // Padding inside the header
+  margin: '0 auto', // Center horizontally
+  marginTop: '20px', // Move header downward by 20px (adjust as needed)
 }));
 
 // Styled image for logo and app name
@@ -64,7 +62,6 @@ const ProfilePopover = styled(Paper)(({ theme }) => ({
 
 const HeaderSignin = () => {
   const [fullscreen, setFullscreen] = useState(false);
-  const [hover, setHover] = useState(false); // State to manage hover
   const [profileAnchor, setProfileAnchor] = useState(null); // State to manage profile popover
   const navigate = useNavigate(); // Use navigate hook
   const profileName = localStorage.getItem('owner') || 'Profile'; // Fetch profile name from local storage
@@ -104,7 +101,7 @@ const HeaderSignin = () => {
 
   // Navigate to /choose
   const handleHomeClick = () => {
-    navigate('/choose');
+    navigate('/land');
   };
 
   return (
@@ -121,7 +118,6 @@ const HeaderSignin = () => {
           <IconButton color="inherit" style={{ fontSize: '30px', color: '#000000' }} onClick={handleFullscreen}>
             <FullscreenIcon />
           </IconButton>
-        
           <IconButton color="inherit" style={{ fontSize: '30px', color: '#000000' }} onClick={handleSignOut}>
             <LogoutIcon />
           </IconButton>

@@ -1,7 +1,8 @@
 import React from 'react';
 import '../assets/styles/Loader.css';
 
-const Loader = ({ message }) => {
+const Loader = ({ message }) =>
+   {
   return (
     <div id="wifi-loader">
       <svg className="circle-outer" viewBox="0 0 86 86">

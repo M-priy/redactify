@@ -176,8 +176,10 @@ const SelectFile = () => {
   const handleDrop = (event) => {
     event.preventDefault();
     setError('');
+
     const droppedFile = event.dataTransfer.files[0];
     if (droppedFile) {
+
       if (droppedFile.size > 5 * 1024 * 1024) {
         setError('File size exceeds 5MB.');
         return;
@@ -323,6 +325,7 @@ const SelectFile = () => {
                 <ToggleButton value="3" aria-label="high">
                   High
                 </ToggleButton>
+
               </PrioritySelector>
 
               <ChipLabel>{levelDescriptions[level]}</ChipLabel>
@@ -347,6 +350,13 @@ const SelectFile = () => {
         maxWidth="md"
         fullWidth
       >
+        <Dialog open ={previewOpen}
+        onClose ={handleClosePreview}
+        maxWidth="md"
+        fullWidth
+        ></Dialog>
+
+
         <DialogTitle>File Preview</DialogTitle>
         <DialogContent>
           <PreviewContainer>

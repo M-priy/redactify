@@ -29,7 +29,7 @@ const Landing = () => {
           <h1>Effortless Data Redaction</h1>
           <p>Securely manage/Review your redactions</p>
         </div>
-      </div>
+      </div>handleLeftClick
       <div className="image3" style={{ backgroundImage: `url(${image3})` }}>
         <div className="svg-container" onClick={handleLeftClick}>
           <img src={leftSvg} alt="Left SVG" className="left-svg" />
